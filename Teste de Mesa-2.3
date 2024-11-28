@@ -1,0 +1,25 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Digite o valor inicial:");
+        double valorinvest = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Digite a taxa em juros:");
+        double taxajuros = double.Parse(Console.ReadLine()) / 100;
+
+        Console.WriteLine("Digite o período em meses:");
+        double Meses = double.Parse(Console.ReadLine());
+
+        double percentualJuros = valorinvest * Math.Pow(1 + taxajuros, Meses);
+        double rendimentoTotal = percentualJuros - valorinvest;
+
+        Console.WriteLine($"Valor inicial do investimento: R${valorinvest:C2}");
+        Console.WriteLine($"Taxa de Juros adicionada ao valor: {taxajuros * 100}%");
+        Console.WriteLine($"Período em meses: {Meses} meses");
+        Console.WriteLine($"Rendimento total ao longo do período: R${rendimentoTotal:C2}");
+        Console.WriteLine($"Valor final com juros: R${percentualJuros:C2}");
+    }
+}
