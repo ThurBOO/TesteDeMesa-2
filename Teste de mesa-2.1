@@ -1,25 +1,16 @@
 using System;
+using System.Runtime.CompilerServices;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.Write("Informe o valor do investimento: ");
-        double valorinvest = Convert.ToDouble(Console.ReadLine());
-
-        Console.Write("Informe a taxa de juros: ");
-        double taxajuros = Convert.ToDouble(Console.ReadLine()) / 100;//dividir por 100 pois é porcentagem
-
-        Console.Write("Informe o período em meses: ");
-        int meses = Convert.ToInt32(Console.ReadLine());
-
-        double percentualjuros = valorinvest * Math.Pow(1 + taxajuros, meses);
-        double rendimento = percentualjuros - valorinvest;
-
-        Console.WriteLine($"Valor inicial do investimento: R${valorinvest:C2}");
-        Console.WriteLine($"Taxa de Juros adicionada ao valor: {taxajuros * 100}%");
-        Console.WriteLine($"Período mensal: {meses} meses");
-        Console.WriteLine($"Rendimento: R${rendimento:C2}");
-        Console.WriteLine($"Valor final com juros: R${percentualjuros:C2}");
+        double valorPresente = 1000;
+        double taxaJuros = 5.30/100;
+        int periodoMes=6;
+        double percentualJuros=valorPresente * Math.Pow(1+taxaJuros,periodoMes);
+        double rendimento = percentualJuros - valorPresente;
+        Console.WriteLine($"O valor do rendimento é: R${rendimento:C2}");
+        Console.WriteLine($"O valor final com juros é:R${percentualJuros:C2}");
     }
 }
