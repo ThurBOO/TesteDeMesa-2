@@ -1,0 +1,38 @@
+using System;
+using System.Runtime.CompilerServices;
+using System.Security.AccessControl;
+using System.Xml.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        double valorPresente = 2000;
+        double taxaJuros = 2.00/100;
+        int periodoMes=6;
+        double percentualJuros=valorPresente * Math.Pow(1+taxaJuros,periodoMes);
+        double rendimento = percentualJuros - valorPresente;
+        Console.WriteLine($"O valor do rendimento é: R${rendimento:C2}");
+        Console.WriteLine($"O valor final com juros é:R${percentualJuros:C2}");
+        double valorx = valorPresente;
+        Console.WriteLine("\nRendimento mensal:");
+       for (int x = 1; x <= 5; x++)
+        {
+            double rendas = valorx * taxaJuros;
+            valorx += rendas;
+            Console.WriteLine($"\nMês {x}: Rendimento mensal R$ {rendas:C2}");
+            Console.WriteLine($"Valor Final Mensal: R${valorx:C2}");
+        }
+        Console.WriteLine("Qual o valor do saque que deseja fazer?");
+        double saque = Convert.ToDouble(Console.ReadLine());
+        valorx = valorx-saque;
+        Console.WriteLine($"Seu saldo no quinto mes é:{valorx:C2}");
+       for (int y = 1; y<= 2; y++)
+        {
+            double renda = valorx * taxaJuros;
+            valorx += renda;
+            Console.WriteLine($"\nMês {y} após o saque: Rendimento mensal R$ {renda:C2}");
+            Console.WriteLine($"Valor Final Mensal: R${valorx:C2}");
+        }
+    }
+}
